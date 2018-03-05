@@ -8,6 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <!-- 引导页风格 -->
     <style name="ThemeSplash" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowNoTitle">true</item>
@@ -15,4 +17,17 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
+
+    <!-- 登录/注册/提交等按钮的背景样式 -->
+    <style name="Module_Btn_BuleStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/size_40</item>
+        <item name="android:layout_marginTop">@dimen/size_10</item>
+        <item name="android:layout_marginLeft">@dimen/size_10</item>
+        <item name="android:layout_marginRight">@dimen/size_10</item>
+        <item name="android:textSize">@dimen/font_size_18</item>
+        <item name="android:enabled">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/module_login_btn_bg</item>
+    </style>
 </resources>

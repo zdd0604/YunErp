@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mainViewpager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_0"
+        android:layout_weight="1"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_1"
+        android:background="@color/lightgrey"/>
+
+    <com.lzy.widget.AlphaIndicator
+        android:id="@+id/alphaIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
+
+        <com.lzy.widget.AlphaView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:av_tabIconNormal="@mipmap/ic_launcher"
+            app:av_tabIconSelected="@mipmap/ic_launcher_round"
+            app:av_tabText="@string/tab_home"
+            app:av_tabTextSize="14sp"
+            app:av_textColorNormal="#999999"
+            app:av_textColorSelected="@color/deepskyblue"/>
+
+
+        <com.lzy.widget.AlphaView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:av_tabIconNormal="@mipmap/ic_launcher"
+            app:av_tabIconSelected="@mipmap/ic_launcher_round"
+            app:av_tabText="@string/tab_business"
+            app:av_tabTextSize="14sp"
+            app:av_textColorNormal="#999999"
+            app:av_textColorSelected="@color/deepskyblue"/>
+
+        <com.lzy.widget.AlphaView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:av_tabIconNormal="@mipmap/ic_launcher"
+            app:av_tabIconSelected="@mipmap/ic_launcher_round"
+            app:av_tabText="@string/tab_finance"
+            app:av_tabTextSize="14sp"
+            app:av_textColorNormal="#999999"
+            app:av_textColorSelected="@color/deepskyblue"/>
+
+
+        <com.lzy.widget.AlphaView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:av_tabIconNormal="@mipmap/ic_launcher"
+            app:av_tabIconSelected="@mipmap/ic_launcher_round"
+            app:av_tabText="@string/tab_basics"
+            app:av_tabTextSize="14sp"
+            app:av_textColorNormal="#999999"
+            app:av_textColorSelected="@color/deepskyblue"/>
+
+    </com.lzy.widget.AlphaIndicator>
+</LinearLayout>

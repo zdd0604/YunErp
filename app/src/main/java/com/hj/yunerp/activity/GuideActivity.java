@@ -2,16 +2,13 @@ package com.hj.yunerp.activity;
 
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.Button;
 
 import com.hj.yunerp.MainActivity;
 import com.hj.yunerp.R;
-import com.hj.yunerp.app.App;
+import com.hj.yunerp.common.ActivitySupport;
 import com.hj.yunerp.common.Constant;
 import com.hj.yunerp.db.SpUtils;
 import com.hj.yunerp.utils.GlideImageLoader;
@@ -29,7 +26,7 @@ import butterknife.ButterKnife;
  * 引导页
  */
 
-public class GuideActivity extends AppCompatActivity implements OnBannerListener,
+public class GuideActivity extends ActivitySupport implements OnBannerListener,
         ViewPager.OnPageChangeListener ,
         View.OnClickListener{
     //轮播图
@@ -44,7 +41,7 @@ public class GuideActivity extends AppCompatActivity implements OnBannerListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guidance);
+        setContentView(R.layout.module_activity_guidance);
         ButterKnife.bind(this);
 
         initView();
@@ -105,9 +102,7 @@ public class GuideActivity extends AppCompatActivity implements OnBannerListener
 
 
     private void enterMainActivity() {
-        Intent intent = new Intent(GuideActivity.this,
-                MainActivity.class);
-        startActivity(intent);
+        IntentInterface(mContext,LoginActivity.class);
         SpUtils.putBoolean(GuideActivity.this, Constant.FIRST_OPEN, true);
         finish();
     }

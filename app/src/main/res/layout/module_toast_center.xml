@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/myToast_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="@drawable/module_bd_mytoast"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="@dimen/size_20"
+        android:paddingLeft="@dimen/size_30"
+        android:paddingRight="@dimen/size_30"
+        android:paddingTop="@dimen/size_20"
+        android:text="@string/module_register_backUp_tv"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/font_size_15" />
+
+</RelativeLayout>

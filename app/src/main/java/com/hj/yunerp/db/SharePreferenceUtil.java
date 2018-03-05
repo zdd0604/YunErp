@@ -7,7 +7,12 @@ public class SharePreferenceUtil {
 	private SharedPreferences sp;
 	private SharedPreferences.Editor editor;
 	private static SharePreferenceUtil instance;
-	Context context;
+	private Context context;
+
+	//账户id
+	private String antID = "antID";
+	//密码id
+	private String pasID = "pasID";
 
 	public synchronized static SharePreferenceUtil getInstance(Context context) {
 		if (null == instance) {
@@ -22,10 +27,45 @@ public class SharePreferenceUtil {
 		this.editor = sp.edit();
 	}
 
+
+	/**
+	 * 清空临时数据库
+	 */
 	public void clearSharePreference() {
 		editor.clear();
 		editor.commit();
 	}
+
+	/**
+	 *
+	 * @param ant
+	 * 			用户名
+	 * @param psd
+	 * 			密码
+	 */
+	public void saveAccountInfo(String ant,String psd){
+		editor.putString(antID,ant);
+		editor.putString(pasID,psd);
+		editor.commit();
+	}
+
+	/**
+	 * 获取用户名
+	 * @return
+	 */
+	public String getAntID(){
+		return sp.getString(antID,"");
+	}
+
+	/**
+	 * 获取密码
+	 * @return
+	 */
+	public String getPasID(){
+		return sp.getString(pasID,"");
+	}
+
+
 
 	/**
 	 * application run times

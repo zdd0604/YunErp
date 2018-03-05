@@ -50,6 +50,10 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:name="android.hardware.camera.flash" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+
     <application
         android:name=".app.App"
         android:allowBackup="true"
@@ -60,7 +64,8 @@
         android:theme="@style/AppTheme">
 
         <!-- 启动页 -->
-        <activity android:name=".activity.SplashActivity"
+        <activity
+            android:name=".activity.SplashActivity"
             android:theme="@style/ThemeSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -69,16 +74,22 @@
             </intent-filter>
         </activity>
 
-
         <!-- 引导页 -->
-        <activity android:name=".activity.GuideActivity"
-            android:theme="@style/ThemeSplash">
-
-        </activity>
-
+        <activity
+            android:name=".activity.GuideActivity"
+            android:theme="@style/ThemeSplash" />
 
         <!-- 首页 -->
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".MainActivity" />
+
+        <!-- 登录 -->
+        <activity
+            android:name=".activity.LoginActivity"/>
+
+        <!-- 注册验证手机号 -->
+        <activity
+            android:name=".activity.RegisterActivity"/>
 
 
     </application>

@@ -2,17 +2,59 @@
     <string name="app_name">云ERP</string>
 
 
+    <!-- tab标签 -->
+    <string name="tab_home">首页</string>
+    <string name="tab_business">业务</string>
+    <string name="tab_finance">财务</string>
+    <string name="tab_basics">基础信息</string>
+
     <!-- 引导页 -->
     <string name="guideBtn_Title">立即体验</string>
-
-    <string name="app_Login">登录</string>
-
-    <string name="app_Exit">退出</string>
-
+    <string name="module_app_Login">登录</string>
+    <string name="module_app_Exit">退出</string>
     <string name="prompt">提示</string>
-
     <string name="menu_settings">设置</string>
-
     <string name="check_sdcard">请检查内存卡</string>
+    <string name="title_activity_login">请检查内存卡</string>
+
+    <!-- 登录 -->
+    <string name="module_login_myPhone_tv">手机号：</string>
+    <string name="module_login_password_tv">密码：</string>
+    <string name="module_login_password_tips">请输入密码</string>
+    <string name="module_login_rmbPsd_tv">记住我</string>
+    <string name="module_login_register_tv">立即注册</string>
+    <string name="module_login_forgetPsd_tv">忘记密码？</string>
+
+    <string name="error_field_required">请输入正确的手机号</string>
+    <string name="error_incorrect_password">这个密码是不正确的</string>
+
+
+    <!-- 注册1/重置密码 -->
+    <string name="module_register_myPhone_tips">请输入手机号</string>
+    <string name="module_register_CAPTCHA_tv">短信验证码：</string>
+    <string name="module_register_CAPTCHA_tips">请输入验证码</string>
+    <string name="module_register_gainCAPTCHA_tv">获取验证码</string>
+    <string name="module_register_backUp_tv">返回登录</string>
+    <string name="module_register_nextStep_btn">下一步</string>
+
+    <!-- 注册2 -->
+    <string name="module_register_cpNmae_tle">公司名称：</string>
+    <string name="module_register_cpName_tips">请输入公司名称</string>
+    <string name="module_register_contact_tle">联系人：</string>
+    <string name="module_register_contact_tips">请输入联系人</string>
+    <string name="module_register_cpPsd_tle">密码：</string>
+    <string name="module_register_cpPsd_tips">请输入密码</string>
+    <string name="module_register_againCpPsd_tle">确认密码：</string>
+    <string name="module_register_againCpPsd_tips">请输入确认密码</string>
+    <string name="module_register_affirm_tle">确认注册</string>
+
+    <!-- 修改密码 -->
+    <string name="module_change_acPsd_tle">新密码：</string>
+    <string name="module_change_acPsd_tips">请输入新密码</string>
+    <string name="module_change_againAcPsd_tle">确认新密码：</string>
+    <string name="module_change_againAcPsd_tips">请输入确认新密码</string>
+
+
+
 
 </resources>

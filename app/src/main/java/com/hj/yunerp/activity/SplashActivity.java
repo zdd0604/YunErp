@@ -2,31 +2,29 @@ package com.hj.yunerp.activity;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.provider.ContactsContract;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.hj.yunerp.MainActivity;
 import com.hj.yunerp.R;
+import com.hj.yunerp.common.ActivitySupport;
 import com.hj.yunerp.common.Constant;
 import com.hj.yunerp.db.SpUtils;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
  * 启动屏
  *
  */
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends ActivitySupport {
     ImageView splashImg;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         initView();
     }
 
@@ -42,7 +40,7 @@ public class SplashActivity extends AppCompatActivity {
         }
 
         // 如果不是第一次启动app，则正常显示启动屏
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.moudule_activity_splash);
 
         splashImg = findViewById(R.id.splashImg);
 
@@ -50,6 +48,9 @@ public class SplashActivity extends AppCompatActivity {
         Glide.with(this).
                 load("http://ww4.sinaimg.cn/large/006uZZy8jw1faic1xjab4j30ci08cjrv.jpg")
                 .into(splashImg);
+
+
+        //执行登录操作
 
         new Handler().postDelayed(new Runnable() {
 
@@ -61,7 +62,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void enterHomeActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
