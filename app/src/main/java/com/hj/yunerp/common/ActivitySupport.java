@@ -27,6 +27,7 @@ import android.widget.EditText;
 
 import com.hj.yunerp.R;
 import com.hj.yunerp.db.SharePreferenceUtil;
+import com.hj.yunerp.widget.WaitDialogRectangle;
 
 /**
  * Created by zhangdongdong on 2018/2/23.
@@ -35,8 +36,12 @@ import com.hj.yunerp.db.SharePreferenceUtil;
 public class ActivitySupport extends AppCompatActivity implements IActivitySupport {
 
     protected Context mContext = null;
+    //通知
     protected NotificationManager notificationManager;
+    //临时数据库
     public static SharePreferenceUtil spUtil = null;
+    //过度进度条
+    protected WaitDialogRectangle waitDialogRectangle;
 
     /**
      * @author haijian 增加变量判断键盘是否收回
@@ -47,10 +52,21 @@ public class ActivitySupport extends AppCompatActivity implements IActivitySuppo
         super.onCreate(savedInstanceState);
 
         mContext = this;
+
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        if (waitDialogRectangle == null)
+            waitDialogRectangle = new WaitDialogRectangle(mContext);
 
         if (spUtil == null)
             spUtil = SharePreferenceUtil.getInstance(mContext);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        waitDialogRectangle.cancel();
     }
 
     @Override

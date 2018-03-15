@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hj.yunerp.R;
-import com.hj.yunerp.common.ActivitySupport;
+import com.hj.yunerp.common.ActivityBaseHeader;
+import com.hj.yunerp.common.ActivityMainHeader;
 import com.hj.yunerp.utils.CountDownTimerUtils;
 import com.hj.yunerp.utils.StringUtil;
 import com.hj.yunerp.widget.MyToast;
@@ -21,10 +23,10 @@ import butterknife.ButterKnife;
 
 /**
  * @author zhangdongdong
- *
- *  验证手机号码
+ *         <p>
+ *         验证手机号码
  */
-public class RegisterActivity extends ActivitySupport implements View.OnClickListener {
+public class RegisterActivity extends ActivityBaseHeader implements View.OnClickListener {
     //手机号
     @BindView(R.id.register_myPhone_et)
     EditText register_myPhone_et;
@@ -57,6 +59,7 @@ public class RegisterActivity extends ActivitySupport implements View.OnClickLis
     }
 
     private void init() {
+        setBaseCenterTv(getString(R.string.module_register_acName));
 
         register_myPhone_et.addTextChangedListener(textWatcher);
         register_captcha_et.addTextChangedListener(textWatcher);
@@ -80,7 +83,10 @@ public class RegisterActivity extends ActivitySupport implements View.OnClickLis
             userPhone = getEditextCt(register_myPhone_et);
             userCaptcha = getEditextCt(register_captcha_et);
 
-            if (StringUtil.isStrTrue(userPhone) && StringUtil.isStrTrue(userCaptcha))
+            if (StringUtil.isStrTrue(userPhone)
+                    && userPhone.length()==11
+                    && StringUtil.isStrTrue(userCaptcha)
+                    && userCaptcha.length() == 6)
             {
                 register_nextStep_btn.setEnabled(true);
             }
@@ -121,10 +127,13 @@ public class RegisterActivity extends ActivitySupport implements View.OnClickLis
      * 请求网络
      */
     private void gainCaptch() {
+        if (!StringUtil.isStrTrue(userPhone)) {
+            new MyToast(mContext, getString(R.string.module_register_myPhone_tips));
+            return;
+        }
 
-        if (!StringUtil.isMobileNO(userPhone))
-        {
-            new MyToast(mContext, "请检查手机号码" + userPhone);
+        if (!StringUtil.isMobileNO(userPhone)) {
+            new MyToast(mContext, getString(R.string.module_register_ckMyPhone_tips));
             return;
         }
 
@@ -140,12 +149,10 @@ public class RegisterActivity extends ActivitySupport implements View.OnClickLis
      */
     private void nextStep() {
 
-        if (!StringUtil.isStrTrue(userCaptcha))
-        {
-            new MyToast(mContext, "请输入验证码");
+        if (!StringUtil.isStrTrue(userCaptcha)) {
+            new MyToast(mContext, getString(R.string.module_register_CAPTCHA_tips));
             return;
         }
-
 
 
     }
@@ -157,4 +164,5 @@ public class RegisterActivity extends ActivitySupport implements View.OnClickLis
         if (countDownTimer != null)
             countDownTimer.cancel();
     }
+
 }

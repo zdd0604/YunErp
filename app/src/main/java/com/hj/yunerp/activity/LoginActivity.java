@@ -33,6 +33,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ import com.hj.yunerp.MainActivity;
 import com.hj.yunerp.R;
 import com.hj.yunerp.common.ActivitySupport;
 import com.hj.yunerp.utils.StringUtil;
+import com.hj.yunerp.widget.MyToast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,6 +55,9 @@ import static android.Manifest.permission.READ_CONTACTS;
 @RuntimePermissions
 public class LoginActivity extends ActivitySupport implements OnClickListener {
 
+    //公司Logo或者个人头像
+    @BindView(R.id.companyLogo)
+    ImageView companyLogo;
     //账户
     @BindView(R.id.userAccount)
     EditText userAccount;
@@ -83,7 +88,7 @@ public class LoginActivity extends ActivitySupport implements OnClickListener {
      * 包含已知用户名和密码的假身份验证存储库。
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "zdd@163.com", "12345"
+            "13718999044", "12345"
     };
     /**
      * 跟踪登录任务，以确保我们可以在需要时取消它。.
@@ -105,8 +110,10 @@ public class LoginActivity extends ActivitySupport implements OnClickListener {
 
         userAccount.setText(spUtil.getAntID());
         userAccount.addTextChangedListener(textWatcher);
-        userPassword.setText(spUtil.getPasID());
+        if (spUtil.getRmbCk())
+            userPassword.setText(spUtil.getPasID());
         userPassword.addTextChangedListener(textWatcher);
+        login_rmbPsd_ck.setChecked(spUtil.getRmbCk());
 
         userPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -122,6 +129,16 @@ public class LoginActivity extends ActivitySupport implements OnClickListener {
         account_sign_in_button.setOnClickListener(this);
         account_register_in_tv.setOnClickListener(this);
         account_register_forgetPsd_tv.setOnClickListener(this);
+
+
+        accountID = getEditextCt(userAccount);
+        pasdID = getEditextCt(userPassword);
+
+        if (StringUtil.isStrTrue(getEditextCt(userAccount)) &&
+                StringUtil.isStrTrue(getEditextCt(userPassword)))
+        {
+            account_sign_in_button.setEnabled(true);
+        }
 
     }
 
@@ -193,16 +210,17 @@ public class LoginActivity extends ActivitySupport implements OnClickListener {
         boolean cancel = false;
         View focusView = null;
 
+
         // 检查手机号是否正确
         if (!StringUtil.isMobileNO(accountID)) {
-            userAccount.setError(getString(R.string.error_field_required));
+            userAccount.setError(getString(R.string.module_login_error_field_required));
             focusView = userAccount;
             cancel = true;
         }
 
         // 检查一个有效的密码，如果用户输入了一个。
         if (!StringUtil.isStrTrue(pasdID)) {
-            userPassword.setError(getString(R.string.error_incorrect_password));
+            userPassword.setError(getString(R.string.module_login_error_incorrect_password));
             focusView = userPassword;
             cancel = true;
         }
@@ -239,30 +257,30 @@ public class LoginActivity extends ActivitySupport implements OnClickListener {
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final String mEmail;
+        private final String mAccount;
         private final String mPassword;
 
-        UserLoginTask(String email, String password) {
-            mEmail = email;
+        UserLoginTask(String account, String password) {
+            mAccount = account;
             mPassword = password;
+
+            waitDialogRectangle.show();
         }
 
         @Override
         protected Boolean doInBackground(Void... params) {
+
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 return false;
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    //帐户存在，如果密码匹配，返回true。
-                    return pieces[1].equals(mPassword);
-                }
+            if (DUMMY_CREDENTIALS[0].equals(mAccount)) {
+                //帐户存在，如果密码匹配，返回true。
+                return DUMMY_CREDENTIALS[1].equals(mPassword);
             }
-            return true;
+            return false;
         }
 
         @Override
@@ -271,13 +289,15 @@ public class LoginActivity extends ActivitySupport implements OnClickListener {
             if (success) {
                 //密码账户正确
                 IntentInterface(mContext, MainActivity.class);
-                if (login_rmbPsd_ck.isChecked())
-                    spUtil.saveAccountInfo(mEmail, mPassword);
+//                if (login_rmbPsd_ck.isChecked())
+                    spUtil.saveAccountInfo(mAccount, mPassword,login_rmbPsd_ck.isChecked());
                 finish();
             } else {
-                userPassword.setError(getString(R.string.error_incorrect_password));
+                userPassword.setError(getString(R.string.module_login_error_incorrect_password));
                 userPassword.requestFocus();
             }
+
+            waitDialogRectangle.cancel();
         }
 
         @Override

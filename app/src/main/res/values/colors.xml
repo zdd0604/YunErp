@@ -146,4 +146,5 @@
 
     //透明
     <color name="lucency">#cc000000</color>
+    <color name="transparent">#00000000</color>
 </resources>

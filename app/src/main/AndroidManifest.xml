@@ -80,18 +80,14 @@
             android:theme="@style/ThemeSplash" />
 
         <!-- 首页 -->
-        <activity
-            android:name=".MainActivity" />
+        <activity android:name=".MainActivity" />
 
         <!-- 登录 -->
-        <activity
-            android:name=".activity.LoginActivity"/>
+        <activity android:name=".activity.LoginActivity" />
 
         <!-- 注册验证手机号 -->
-        <activity
-            android:name=".activity.RegisterActivity"/>
-
-
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".common.ActivityBaseHeader"></activity>
     </application>
 
 </manifest>

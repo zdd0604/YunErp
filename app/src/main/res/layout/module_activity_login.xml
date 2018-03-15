@@ -4,39 +4,68 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:padding="@dimen/size_16"
     tools:context="com.hj.yunerp.activity.LoginActivity">
 
-
-    <EditText
-        android:id="@+id/userAccount"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/companyLogo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/module_register_myPhone_tips"
-        android:inputType="phone"
-        android:maxLength="11"
-        android:maxLines="1"
-        android:singleLine="true" />
+        android:layout_marginBottom="@dimen/size_30"
+        android:layout_marginTop="@dimen/size_30"
+        android:src="@mipmap/ic_launcher" />
 
 
-    <EditText
-        android:id="@+id/userPassword"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/module_login_password_tips"
-        android:imeActionId="6"
-        android:imeOptions="actionUnspecified"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:singleLine="true" />
+        android:layout_height="@dimen/size_45"
+        android:orientation="horizontal">
 
+        <TextView
+            style="@style/Module_TtView_LeftTheme"
+            android:text="@string/module_login_myPhone_tv" />
+
+        <EditText
+            android:id="@+id/userAccount"
+            style="@style/Module_EdView_RightTheme"
+            android:hint="@string/module_register_myPhone_tips"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+    <View style="@style/Module_DivisionView_HzTheme" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_45"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Module_TtView_LeftTheme"
+            android:text="@string/module_login_password_tv" />
+
+        <EditText
+            android:id="@+id/userPassword"
+            style="@style/Module_EdView_RightTheme"
+            android:hint="@string/module_login_password_tips"
+            android:imeActionId="6"
+            android:imeOptions="actionUnspecified"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+
+    <View style="@style/Module_DivisionView_HzTheme" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_10">
 
         <CheckBox
             android:id="@+id/login_rmbPsd_ck"
@@ -46,22 +75,18 @@
 
         <TextView
             android:id="@+id/account_register_in_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Module_TtView_HintBlueTheme"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/size_10"
             android:layout_toLeftOf="@id/account_register_forgetPsd_tv"
-            android:text="@string/module_login_register_tv"
-            android:textSize="@dimen/font_size_14" />
+            android:text="@string/module_login_register_tv" />
 
         <TextView
             android:id="@+id/account_register_forgetPsd_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Module_TtView_HintBlueTheme"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:text="@string/module_login_forgetPsd_tv"
-            android:textSize="@dimen/font_size_14" />
+            android:text="@string/module_login_forgetPsd_tv" />
     </RelativeLayout>
 
     <Button

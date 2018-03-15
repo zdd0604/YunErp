@@ -58,7 +58,7 @@ public class SplashActivity extends ActivitySupport {
             public void run() {
                 enterHomeActivity();
             }
-        }, 5000);
+        }, 2000);
     }
 
     private void enterHomeActivity() {
