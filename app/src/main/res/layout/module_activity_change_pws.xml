@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hj.yunerp.activity.ChangePwsActivity">
+
+    <View
+        style="@style/Module_DivisionView_HzTheme"
+        android:layout_marginTop="@dimen/size_20" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_45"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Module_TtView_LeftTheme"
+            android:layout_width="@dimen/size_300"
+            android:text="@string/module_register_cpPsd_tle" />
+
+        <EditText
+            android:id="@+id/changePsd"
+            style="@style/Module_EdView_RightTheme"
+            android:hint="@string/module_register_cpPsd_tips"
+            android:maxLines="1"
+            android:digits="@string/available_chars"
+            android:maxLength="20"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+    <View
+        style="@style/Module_DivisionView_HzTheme"
+        android:layout_marginLeft="@dimen/size_10" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_45"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Module_TtView_LeftTheme"
+            android:layout_width="@dimen/size_300"
+            android:text="@string/module_register_againCpPsd_tle" />
+
+        <EditText
+            android:id="@+id/changeAgainCpPsd"
+            style="@style/Module_EdView_RightTheme"
+            android:hint="@string/module_register_againCpPsd_tips"
+            android:maxLines="1"
+            android:digits="@string/available_chars"
+            android:maxLength="20"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+    <View style="@style/Module_DivisionView_HzTheme" />
+
+    <Button
+        android:id="@+id/change_nextStep_btn"
+        style="@style/Module_Btn_BuleStyle"
+        android:layout_marginTop="@dimen/size_20"
+        android:text="@string/module_register_nextStep_btn" />
+
+</LinearLayout>

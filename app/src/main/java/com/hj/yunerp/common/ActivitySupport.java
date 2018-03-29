@@ -12,21 +12,20 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.PersistableBundle;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.hj.yunerp.R;
 import com.hj.yunerp.db.SharePreferenceUtil;
+import com.hj.yunerp.widget.MyToast;
 import com.hj.yunerp.widget.WaitDialogRectangle;
 
 /**
@@ -237,7 +236,7 @@ public class ActivitySupport extends AppCompatActivity implements IActivitySuppo
 
 
     /**
-     * @author haijian 增加点击edittext区域外，收起软键盘功能
+     *  增加点击edittext区域外，收起软键盘功能
      */
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
@@ -336,19 +335,97 @@ public class ActivitySupport extends AppCompatActivity implements IActivitySuppo
 
 
     /**
-     * 跳转界面
+     * 单纯跳转界面
+     *
+     * @param toClass
      */
-    protected void IntentInterface(Context context, Class cs) {
-        Intent intent = new Intent(context, cs);
+    public void intentActivity(Class toClass) {
+        Intent intent = new Intent(mContext, toClass);
         startActivity(intent);
     }
 
     /**
+     * 跳转页面带参数
+     *
+     * @param to
+     * @param bundle
+     */
+    public void intentBdActivity(Class to, Bundle bundle) {
+        Intent intent = new Intent(mContext, to);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    /**
+     * 无返回数据
+     *
+     * @param toClass
+     * @param requestCode
+     */
+    public void intentActivityForResult(Class toClass, int requestCode) {
+        Intent intent = new Intent(mContext, toClass);
+        startActivityForResult(intent, requestCode);
+    }
+
+    /**
+     * 带参数返回
+     *
+     * @param toClass
+     * @param requestCode
+     * @param bundle
+     */
+    public void intentBdActivityForResult(Class toClass, int requestCode, Bundle bundle) {
+        Intent intent = new Intent(mContext, toClass);
+        intent.putExtras(bundle);
+        startActivityForResult(intent, requestCode);
+    }
+
+
+    /**
+     * 长toast
+     *
+     * @param content
+     */
+    public void toastLONG(String content) {
+        Toast.makeText(mContext, content, Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * 短toast
+     *
+     * @param content
+     */
+    public void toastSHORT(String content) {
+        Toast.makeText(mContext, content, Toast.LENGTH_SHORT).show();
+    }
+
+
+    /**
+     * 自定义toast
+     *
+     * @param content
+     */
+    public void myToastShow(String content) {
+        new MyToast(mContext, content);
+    }
+
+    /**
+     * Log 输出
+     *
+     * @param content
+     */
+    public void logShow(String content) {
+        if (Constant.IS_LOG_SHOW_VIEW)
+            Log.e("YERP", this.getClass().getSimpleName() + " -- " + content);
+    }
+
+    /**
      * 获取输入框的内容
+     *
      * @param editText
      * @return
      */
-    protected String getEditextCt(EditText editText){
+    protected String getEditextCt(EditText editText) {
         return editText.getText().toString().trim();
     }
 

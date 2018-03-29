@@ -14,6 +14,18 @@
     <string name="tlbar_add">添加</string>
     <string name="tlbar_cancel">取消</string>
 
+    <!-- button 按钮内容 -->
+    <string name="btn_confirm">确定</string>
+    <string name="btn_nextStep">下一步</string>
+    <string name="btn_register">注册</string>
+
+    <!-- toast 弹框内容 -->
+    <string name="module_toast_register_cpName">请输入公司名称</string>
+    <string name="module_toast_register_cpContact">请输入联系人</string>
+    <string name="module_toast_register_psd">请输入密码</string>
+    <string name="module_toast_changepsd_aginPsd">请输入确认密码</string>
+    <string name="module_toast_changepsd_cancel">密码和确认密码内容不一致，请修改</string>
+
 
     <!-- 引导页 -->
     <string name="guideBtn_Title">立即体验</string>
@@ -33,30 +45,32 @@
     <string name="module_login_forgetPsd_tv">忘记密码？</string>
     <string name="module_login_error_field_required">请输入正确的手机号</string>
     <string name="module_login_error_incorrect_password">密码错误</string>
+    <string name="available_chars">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_</string>
 
-
-    <!-- 注册1/重置密码 -->
+    <!-- 注册1/重置密码/获取验证码 -->
     <string name="module_register_acName">注册</string>
     <string name="module_register_myPhone_tips">请输入手机号</string>
     <string name="module_register_ckMyPhone_tips">请检查手机号</string>
-    <string name="module_register_CAPTCHA_tv">短信验证码</string>
-    <string name="module_register_CAPTCHA_tips">请输入验证码</string>
+    <string name="module_register_CAPTCHA_tv">验证码</string>
+    <string name="module_register_CAPTCHA_tips">请输入短信验证码</string>
     <string name="module_register_gainCAPTCHA_tv">获取验证码</string>
     <string name="module_register_backUp_tv">返回登录</string>
     <string name="module_register_nextStep_btn">下一步</string>
 
-    <!-- 注册2 -->
-    <string name="module_register_cpNmae_tle">公司名称：</string>
+    <!-- 注册2  module_registerCompany_acName -->
+    <string name="module_registerCompany_acName">企业注册</string>
+    <string name="module_register_cpNmae_tle">公司名称</string>
     <string name="module_register_cpName_tips">请输入公司名称</string>
-    <string name="module_register_contact_tle">联系人：</string>
+    <string name="module_register_contact_tle">联系人</string>
     <string name="module_register_contact_tips">请输入联系人</string>
-    <string name="module_register_cpPsd_tle">密码：</string>
+    <string name="module_register_cpPsd_tle">密码</string>
     <string name="module_register_cpPsd_tips">请输入密码</string>
-    <string name="module_register_againCpPsd_tle">确认密码：</string>
+    <string name="module_register_againCpPsd_tle">确认密码</string>
     <string name="module_register_againCpPsd_tips">请输入确认密码</string>
     <string name="module_register_affirm_tle">确认注册</string>
 
     <!-- 修改密码 -->
+    <string name="module_change_acPsd_acTitle">修改密码</string>
     <string name="module_change_acPsd_tle">新密码：</string>
     <string name="module_change_acPsd_tips">请输入新密码</string>
     <string name="module_change_againAcPsd_tle">确认新密码：</string>

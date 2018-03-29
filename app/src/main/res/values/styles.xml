@@ -12,14 +12,23 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
 
         <!--状态栏颜色-->
-        <item name="colorPrimaryDark">@color/deepskyblue</item>
+        <item name="colorPrimaryDark">@color/transLucent</item>
 
         <!--去掉系统默认的标题栏-->
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+        <!-- 去除toolbar左边距 -->
+        <item name="toolbarStyle">@style/MyToolbar</item>
+        <!-- 设置屏幕方向 -->
+        <item name="android:screenOrientation">portrait</item>
+        <!-- 避免在转屏时重启Activity -->
+        <item name="android:configChanges">orientation|keyboardHidden|screenSize</item>
     </style>
 
-
+    <!-- 去除默认的做边距 -->
+    <style name="MyToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="contentInsetStart">0dp</item>
+    </style>
 
     <!-- 引导页风格 -->
     <style name="ThemeSplash" parent="Theme.AppCompat.Light.NoActionBar">
@@ -27,6 +36,10 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 设置屏幕方向 -->
+        <item name="android:screenOrientation">portrait</item>
+        <!-- 避免在转屏时重启Activity -->
+        <item name="android:configChanges">orientation|keyboardHidden|screenSize</item>
     </style>
 
 
@@ -62,9 +75,10 @@
     <style name="Module_TtView_LeftTheme">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:textSize">@dimen/font_size_14</item>
+        <item name="android:textSize">@dimen/font_size_16</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/size_10</item>
         <item name="android:layout_weight">3</item>
     </style>
 
@@ -82,10 +96,9 @@
         <item name="android:layout_height">@dimen/size_30</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">center_vertical</item>
-        <item name="android:background">@drawable/module_login_btn_bg</item>
         <item name="android:paddingLeft">@dimen/size_10</item>
         <item name="android:paddingRight">@dimen/size_10</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/tbTVColorLeft</item>
         <item name="android:textSize">@dimen/font_size_14</item>
 
     </style>
@@ -96,7 +109,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@null</item>
-        <item name="android:textSize">@dimen/font_size_14</item>
+        <item name="android:textSize">@dimen/font_size_16</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center_vertical</item>
@@ -107,15 +120,28 @@
     <style name="Module_DivisionView_HzTheme">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/size_1</item>
-        <item name="android:background">@color/lightgrey</item>
+        <item name="android:background">@color/appDivisionBg</item>
     </style>
 
     <!-- toolbar 标题文字样式部分统一的属性，（字体、颜色、大小） -->
     <style name="Module_TlbarTv_ComTheme">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/font_size_16</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_size_17</item>
         <item name="android:gravity">center</item>
     </style>
+
+
+
+    <!-- +++++++++++++++++++++ dialog弹框样式 +++++++++++++++++++++ -->
+    <!--弹框样式-->
+    <style name="MyDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transLucent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
 </resources>

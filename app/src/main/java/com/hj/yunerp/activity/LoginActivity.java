@@ -42,6 +42,7 @@ import java.util.List;
 import com.hj.yunerp.MainActivity;
 import com.hj.yunerp.R;
 import com.hj.yunerp.common.ActivitySupport;
+import com.hj.yunerp.common.Constant;
 import com.hj.yunerp.utils.StringUtil;
 import com.hj.yunerp.widget.MyToast;
 
@@ -83,6 +84,8 @@ public class LoginActivity extends ActivitySupport implements OnClickListener {
     //密码
     private String pasdID;
 
+    private Bundle mBundle;
+
 
     /**
      * 包含已知用户名和密码的假身份验证存储库。
@@ -107,6 +110,9 @@ public class LoginActivity extends ActivitySupport implements OnClickListener {
     private void init() {
         //权限申请
         populateAutoComplete();
+
+        if (mBundle == null)
+            mBundle = new Bundle();
 
         userAccount.setText(spUtil.getAntID());
         userAccount.addTextChangedListener(textWatcher);
@@ -246,7 +252,12 @@ public class LoginActivity extends ActivitySupport implements OnClickListener {
                 attemptLogin();
                 break;
             case R.id.account_register_in_tv:
-                IntentInterface(mContext, RegisterActivity.class);
+                mBundle.putBoolean(Constant.REGISTER_TYPE,false);
+                intentBdActivity(RegisterActivity.class,mBundle);
+                break;
+            case R.id.account_register_forgetPsd_tv:
+                mBundle.putBoolean(Constant.REGISTER_TYPE,true);
+                intentBdActivity(RegisterActivity.class,mBundle);
                 break;
         }
     }
@@ -288,7 +299,7 @@ public class LoginActivity extends ActivitySupport implements OnClickListener {
             mAuthTask = null;
             if (success) {
                 //密码账户正确
-                IntentInterface(mContext, MainActivity.class);
+                intentActivity(MainActivity.class);
 //                if (login_rmbPsd_ck.isChecked())
                     spUtil.saveAccountInfo(mAccount, mPassword,login_rmbPsd_ck.isChecked());
                 finish();

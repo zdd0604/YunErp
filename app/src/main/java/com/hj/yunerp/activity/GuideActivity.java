@@ -102,7 +102,7 @@ public class GuideActivity extends ActivitySupport implements OnBannerListener,
 
 
     private void enterMainActivity() {
-        IntentInterface(mContext,LoginActivity.class);
+        intentActivity(LoginActivity.class);
         SpUtils.putBoolean(GuideActivity.this, Constant.FIRST_OPEN, true);
         finish();
     }

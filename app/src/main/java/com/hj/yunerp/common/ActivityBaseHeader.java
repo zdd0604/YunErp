@@ -95,7 +95,6 @@ public class ActivityBaseHeader extends ActivitySupport{
         Drawable drawable = getResources().getDrawable(imgID);
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight()); //设置边界
         base_leftTv.setCompoundDrawables(drawable, null, null, null);//画在右边
-        base_leftTv.setCompoundDrawablePadding(-5);
     }
 
     /**

@@ -9,20 +9,22 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/base_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/deepskyblue"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/white"
         android:navigationContentDescription="back">
 
         <TextView
             android:id="@+id/base_leftTv"
             style="@style/Module_TlbarTv_ComTheme"
-            android:layout_gravity="center_vertical"
+            android:textColor="@color/tbTVColorLeft"
+            android:drawableLeft="@mipmap/module_tolbar_backup"
             android:text="@string/tlbar_BackUp"/>
 
         <TextView
             android:id="@+id/base_centerTv"
             style="@style/Module_TlbarTv_ComTheme"
             android:layout_gravity="center"
+            android:textSize="@dimen/font_size_18"
             android:text="中间标题" />
 
         <TextView
@@ -46,6 +48,7 @@
         android:id="@+id/base_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/base_views" />
+        android:layout_below="@+id/base_views"
+        android:background="@color/appDefaultBg"/>
 
 </RelativeLayout>

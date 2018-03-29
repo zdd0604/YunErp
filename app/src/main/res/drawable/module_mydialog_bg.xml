@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    //圆角
+    <corners
+        android:radius="@dimen/font_size_6"/>
+
+    //内部填充颜色
+    <solid
+        android:color="@color/white"/>
+
+    //边框颜色
+    <stroke
+        android:color="@color/white"
+        android:width="@dimen/size_1"/>
+
+</shape>
